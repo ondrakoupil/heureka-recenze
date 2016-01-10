@@ -31,7 +31,7 @@ najdete [zde][xml-spec].
 
 Následující příklady neuvádějí celá jména tříd - buď si před ně doplňte namespace `OndraKoupil\Heureka`, anebo na začátek programu doplňte
 
-```
+```php
 use \OndraKoupil\Heureka\EshopReviewsClient, \OndraKoupil\Heureka\EshopReview,
     \OndraKoupil\Heureka\ProductReviewsClient, \OndraKoupil\Heureka\ProductReview, \OndraKoupil\Heureka\ProductReviewSummary;
 ```
@@ -42,7 +42,7 @@ use \OndraKoupil\Heureka\EshopReviewsClient, \OndraKoupil\Heureka\EshopReview,
 Při instancování třídy klienta lze zadat rovnou tajný klíč, anebo celou adresu (vhodné pro SK Heuréku). U recenzí
 produktů lze navíc omezit, jak staré recenze chcete (max. 6 měsíců). U recenzí e-shopu tento parametr Heuréka nepodporuje.
 
-```
+```php
 $client  = new   EshopReviewsClient("my-secret-key");
 $client2 = new   EshopReviewsClient("http://www.heureka.sk/direct/dotaznik/export-review.php?key=my-secret-key");
 $client3 = new ProductReviewsClient("my-secret-key");
@@ -60,7 +60,7 @@ i velké XML soubory s relativně malými nároky na paměť. K tomu ale potřeb
 XML soubor z Heuréky někam do dočasného umístění a odtamtud si je postupně číst.
 Druhý argument umožňuje nastavit, zda po úspěšném zpracování má být dočasný soubor automaticky smazán (default true).
 
-```
+```php
 $client->setTempFile("tempfile.xml");
 ```
 
@@ -71,7 +71,7 @@ Nejspíš recenzi uloží někam do databáze. Obě třídy jsou obyčejné hlou
 
 Určená funkce se zavolá jednou pro každou recenzi, která je z Heuréky stažena.
 
-```
+```php
 $client->setCallback( 
 	function(EshopReview $review) {
 		// ... zde si udělejte, co hrdlo ráčí
@@ -85,14 +85,14 @@ $client->setCallback(
 A pak už jen stačí zavolat metodu `run()`. Klient stáhne soubor a jeho obsah recenzi po recenzi postupně 
 předá dříve definované funkci.
 
-```
+```php
 $client->run();
 ```
 
 
 Pokud byste z nějakého důvodu nechtěli soubor rovnou zpracovávat, lze ho pouze stáhnout:
 
-```
+```php
 $client->download("heureka-recenze.xml");
 ```
 
@@ -100,7 +100,7 @@ $client->download("heureka-recenze.xml");
 Anebo naopak, pokud již máte soubor stažený, lze klientovi říct, že ho nemá stahovat
 a místo toho použít zadaný soubor:
 
-```
+```php
 $client->useFile("path/to/downloaded/file.xml");
 $client->run();
 ```
@@ -121,7 +121,7 @@ Pro stejné produkty se definovaná funkce spustí jen jednou.
 
 Pokud funkci nenastavíte, nic se neděje, jen nebude možné používat proměnnou `$productId` v objektech ProductReview a žádné z níže uvedených funkcí.
 
-```
+```php
 $client->setIdResolver(
 	function(ProductReview $review) {
 		return $review->productUrl; 
@@ -132,7 +132,7 @@ $client->setIdResolver(
 Dále si můžete nastavit, zda chcete nebo nechcete zpracovávat souhrnné informace o produktech.
 Pokud to neuděláte, funkce pracující s ProductReviewSummary budou vracet null nebo prázdné pole.
 
-```
+```php
 $client->setSaveSummary(true);
 $client2->setSaveSummary(true, true);
 ```
@@ -144,7 +144,7 @@ postupně poukládat ve funkci definované přes `setCallback()`.
 
 Poté lze klasicky spustit `run()` a využít různé metody vracející souhrnná data.
 
-```
+```php
 $client->run();
 
 // Všechna nalezená ID produktů jako array
