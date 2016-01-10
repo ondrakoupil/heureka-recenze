@@ -2,6 +2,9 @@
 
 namespace OndraKoupil\Heureka;
 
+/**
+ * Společný základ pro obě třídy *Client
+ */
 abstract class BaseClient {
 
 	protected $sourceAddress;
@@ -19,29 +22,64 @@ abstract class BaseClient {
 
 	abstract function setKey($key);
 
+	/**
+	 * Konstruktor umožňuje rovnou nastavit klíč nebo adresu.
+	 *
+	 * @param string $key
+	 */
 	function __construct($key = null) {
 		if ($key) {
 			$this->setKey($key);
 		}
 	}
 
+	/**
+	 * Adresa, z níž se má stahovat XML feed s recenzemi.
+	 *
+	 * @return string
+	 */
 	public function getSourceAddress() {
 		return $this->sourceAddress;
 	}
+
+	/**
+	 * Adresa, z níž se má stahovat XML feed s recenzemi.
+	 *
+	 * @param string $sourceAddress
+	 * @return BaseClient
+	 */
 
 	public function setSourceAddress($sourceAddress) {
 		$this->sourceAddress = $sourceAddress;
 		return $this;
 	}
 
+	/**
+	 * Dočasný soubor
+	 *
+	 * @return string
+	 */
 	public function getTempFile() {
 		return $this->tempFile;
 	}
 
+	/**
+	 * Má se dočasný soubor po parsování automaticky vymazat?
+	 *
+	 * @return bool
+	 */
 	public function getDeleteTempFileAfterParsing() {
 		return $this->deleteTempFileAfterParsing;
 	}
 
+	/**
+	 * Nastaví dočasný soubor, kam se celý XML feed stáhne.
+	 * Použití dočasného souboru redukuje nároky na paměť.
+	 *
+	 * @param string $tempFile
+	 * @param bool $deleteAfterParsing Smazat dočasný soubor automaticky?
+	 * @return BaseClient
+	 */
 	public function setTempFile($tempFile, $deleteAfterParsing = true) {
 		$this->tempFile = $tempFile;
 		$this->deleteTempFileAfterParsing = $deleteAfterParsing ? true : false;
@@ -49,10 +87,20 @@ abstract class BaseClient {
 		return $this;
 	}
 
+	/**
+	 * @return callable
+	 */
 	public function getCallback() {
 		return $this->callback;
 	}
 
+	/**
+	 * Nastavení callbacku, který se spustí pro každou recenzi.
+	 *
+	 * @param callable $callback function($recenze) { ... }, kde $recenze je EshopReview nebo ProductReview (podle typu *Client třídy)
+	 * @return BaseClient
+	 * @throws \InvalidArgumentException
+	 */
 	public function setCallback($callback) {
 		if ($callback and !is_callable($callback)) {
 			throw new \InvalidArgumentException("Given callback is not callable.");
@@ -176,6 +224,11 @@ abstract class BaseClient {
 
 	/* ------- Public API ------ */
 
+	/**
+	 * Umožní použít vlastní soubor (již stažený dříve) a ne ten z Heuréky.
+	 * @param string $filename
+	 * @throws \RuntimeException
+	 */
 	public function useFile($filename) {
 		if (!file_exists($filename) or !is_readable($filename)) {
 			throw new \RuntimeException("File \"$filename\" is not readable.");
@@ -185,6 +238,9 @@ abstract class BaseClient {
 		$this->deleteTempFileAfterParsing = false;
 	}
 
+	/**
+	 * Spustit import!
+	 */
 	public function run() {
 		if (!$this->downloadFinished) {
 			$this->downloadFile();
@@ -193,8 +249,15 @@ abstract class BaseClient {
 		$this->deleteTempFileIfNeeded();
 	}
 
-	public function download($file) {
-		$this->setTempFile($file);
+	/**
+	 * Stáhnout soubor, ale dál ho nezpracovávat.
+	 * @param string $file Kam se má stáhnout? Null = použít nastavený dočasný soubor z setTempFile().
+	 */
+	public function download($file = null) {
+		if ($file) {
+			$this->setTempFile($file);
+		}
+
 		$this->downloadFile();
 	}
 

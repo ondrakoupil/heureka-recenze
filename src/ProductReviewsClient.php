@@ -2,6 +2,9 @@
 
 namespace OndraKoupil\Heureka;
 
+/**
+ * Klient umožňující stahovat recenze jednotlivých produktů
+ */
 class ProductReviewsClient extends BaseClient {
 
 	protected $idResolver;
@@ -9,15 +12,27 @@ class ProductReviewsClient extends BaseClient {
 	protected $saveSummary = false;
 	protected $saveGroupedReviews = false;
 
+	/**
+	 * @ignore
+	 */
 	function getNodeName() {
 		return "product";
 	}
 
+	/**
+	 * @param string $key Heuréka klíč (32 znaků) anebo celá adresa pro stahování importu
+	 * @param \DateTime $from Volitelně lze omezit, odkdy chceš recenze stáhnout. Max 6 měsíců zpátky. Funguje jen zadáš-li jako $key 32znakový klíč.
+	 */
 	function __construct($key = null, \DateTime $from = null) {
 		parent::__construct($key);
 		$this->setKey($key, $from);
 	}
 
+	/**
+	 *
+	 * @param string $key Heuréka klíč (32 znaků) anebo celá adresa pro stahování importu
+	 * @param \DateTime $from Volitelně lze omezit, odkdy chceš recenze stáhnout. Max 6 měsíců zpátky. Funguje jen zadáš-li jako $key 32znakový klíč.
+	 */
 	public function setKey($key, \DateTime $from = null) {
 
 		$fromPart = "";
@@ -33,12 +48,18 @@ class ProductReviewsClient extends BaseClient {
 
 	}
 
+	/**
+	 * @ignore
+	 */
 	function processFile() {
 		$this->idResolverCache = array();
 		$this->summary = array();
 		return parent::processFile();
 	}
 
+	/**
+	 * @ignore
+	 */
 	public function processElement(\SimpleXMLElement $element, $index) {
 
 		$review = new ProductReview();
@@ -73,10 +94,20 @@ class ProductReviewsClient extends BaseClient {
 
 	}
 
+	/**
+	 * @return callable|null
+	 */
 	public function getIdResolver() {
 		return $this->idResolver;
 	}
 
+	/**
+	 * Nastaví funkci odpovědnou za převedení informací o produktu na jeho jednoznačné ID.
+	 * Tuto funkci je třeba implementovat, aby dobře fungovaly summary.
+	 * @param callable|null $idConverter
+	 * @return ProductReviewsClient
+	 * @throws \InvalidArgumentException
+	 */
 	public function setIdResolver($idConverter) {
 
 		if ($idConverter and !is_callable($idConverter)) {
@@ -87,14 +118,31 @@ class ProductReviewsClient extends BaseClient {
 		return $this;
 	}
 
+	/**
+	 * Mají se ukládat summary?
+	 * @return bool
+	 */
 	public function getSaveSummary() {
 		return $this->saveSummary;
 	}
 
+	/**
+	 * Mají se ukládat do summary i všechny recenze?
+	 * @return bool
+	 */
 	public function getSaveGroupedReviews() {
 		return $this->saveGroupedReviews;
 	}
 
+	/**
+	 * Mají se průběžně ukládat summary? Umožní po proběhnutí importu
+	 * pracovat s shrnujícími daty.
+	 *
+	 * @param bool $saveSummary
+	 * @param bool $groupedReviews Mají se ukládat i všechny recenze?
+	 *
+	 * @return ProductReviewsClient
+	 */
 	public function setSaveSummary($saveSummary, $groupedReviews = true) {
 		$this->saveSummary = $saveSummary ? true : false;
 		$this->saveGroupedReviews = $groupedReviews ? true : false;
@@ -106,6 +154,12 @@ class ProductReviewsClient extends BaseClient {
 
 	protected $idResolverCache = array();
 
+	/**
+	 * Vyhodnotí ID produktu
+	 *
+	 * @param ProductReview $review
+	 * @return mixed|null
+	 */
 	public function resolveId(ProductReview $review) {
 
 		if (!$this->idResolver) {
@@ -131,6 +185,9 @@ class ProductReviewsClient extends BaseClient {
 
 	protected $summary = array();
 
+	/**
+	 * @ignore
+	 */
 	protected function addReviewToSummary($productId, ProductReview $review) {
 		if (!$productId) {
 			return;
@@ -175,6 +232,8 @@ class ProductReviewsClient extends BaseClient {
 	}
 
 	/**
+	 * Vrátí pole ID všech produktů, které v datech byly.
+	 *
 	 * @return array
 	 */
 	function getAllProductIds() {
@@ -182,6 +241,8 @@ class ProductReviewsClient extends BaseClient {
 	}
 
 	/**
+	 * Vrát všechny summary jako pole.
+	 *
 	 * @return array of ProductReviewSummary
 	 */
 	function getAllSummaries() {
@@ -189,14 +250,18 @@ class ProductReviewsClient extends BaseClient {
 	}
 
 	/**
+	 * Vrací summary pro konkrétní produkt, null když takový není nalezen.
+	 *
 	 * @param mixed $productId
-	 * @return ProductReviewSummary
+	 * @return ProductReviewSummary|null
 	 */
 	function getSummaryOfProduct($productId) {
 		return isset($this->summary[$productId]) ? $this->summary[$productId] : null;
 	}
 
 	/**
+	 * Vrátí všechny recenze daného produktu jako pole. Prázdné pole, nemá-li žádné recenze.
+	 *
 	 * @param mixed $productId
 	 * @return array of ProductReviewSummary
 	 */

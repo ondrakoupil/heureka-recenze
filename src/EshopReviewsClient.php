@@ -2,6 +2,9 @@
 
 namespace OndraKoupil\Heureka;
 
+/**
+ * Klient umožňující stahovat recenze e-shopu jako takového
+ */
 class EshopReviewsClient extends BaseClient {
 
 	function getNodeName() {
@@ -18,6 +21,9 @@ class EshopReviewsClient extends BaseClient {
 
 	}
 
+	/**
+	 * @ignore
+	 */
 	public function processElement(\SimpleXMLElement $element, $index) {
 
 		$review = new EshopReview();

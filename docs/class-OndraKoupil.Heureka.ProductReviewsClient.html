@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class OndraKoupil\Heureka\ProductReviewsClient | Heuréka importér recenzí</title>
+
+	<link rel="stylesheet" href="resources/style.css?ece90927a9d9c062449c24ff926274b49e781e42">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-OndraKoupil.html">
+						OndraKoupil<span></span>
+					</a>
+
+						<ul>
+				<li class="active main">
+					<a href="namespace-OndraKoupil.Heureka.html">
+						Heureka					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-OndraKoupil.Heureka.BaseClient.html">BaseClient</a></li>
+				<li><a href="class-OndraKoupil.Heureka.EshopReview.html">EshopReview</a></li>
+				<li><a href="class-OndraKoupil.Heureka.EshopReviewsClient.html">EshopReviewsClient</a></li>
+				<li><a href="class-OndraKoupil.Heureka.ProductReview.html">ProductReview</a></li>
+				<li class="active"><a href="class-OndraKoupil.Heureka.ProductReviewsClient.html">ProductReviewsClient</a></li>
+				<li><a href="class-OndraKoupil.Heureka.ProductReviewSummary.html">ProductReviewSummary</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-OndraKoupil.Heureka.html" title="Summary of OndraKoupil\Heureka"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ProductReviewsClient</h1>
+
+
+	<div class="description">
+	<p>Klient umožňující stahovat recenze jednotlivých produktů</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-OndraKoupil.Heureka.BaseClient.html"><span>OndraKoupil\Heureka\BaseClient</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>OndraKoupil\Heureka\ProductReviewsClient</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-OndraKoupil.html">OndraKoupil</a>\<a href="namespace-OndraKoupil.Heureka.html">Heureka</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#5-272" title="Go to source code">ProductReviewsClient.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#22-29" title="Go to source code">__construct</a>( <span>string <var>$key</var> = <span class="php-keyword1">null</span></span>, <span>DateTime <var>$from</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>Heuréka klíč (32 znaků) anebo celá adresa pro stahování importu</dd>
+					<dt><var>$from</var></dt>
+					<dd>Volitelně lze omezit, odkdy chceš recenze stáhnout. Max 6 měsíců zpátky. Funguje jen zadáš-li jako $key 32znakový klíč.</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-OndraKoupil.Heureka.BaseClient.html#___construct">OndraKoupil\Heureka\BaseClient::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setKey" id="_setKey">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setKey">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#31-49" title="Go to source code">setKey</a>( <span>string <var>$key</var></span>, <span>DateTime <var>$from</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>Heuréka klíč (32 znaků) anebo celá adresa pro stahování importu</dd>
+					<dt><var>$from</var></dt>
+					<dd>Volitelně lze omezit, odkdy chceš recenze stáhnout. Max 6 měsíců zpátky. Funguje jen zadáš-li jako $key 32znakový klíč.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIdResolver" id="_getIdResolver">
+
+		<td class="attributes"><code>
+			 public 
+
+			callable|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIdResolver">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#97-102" title="Go to source code">getIdResolver</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					callable|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setIdResolver" id="_setIdResolver">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-OndraKoupil.Heureka.ProductReviewsClient.html">OndraKoupil\Heureka\ProductReviewsClient</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setIdResolver">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#104-119" title="Go to source code">setIdResolver</a>( <span>callable|null <var>$idConverter</var></span> )</code>
+
+		<div class="description short">
+			<p>Nastaví funkci odpovědnou za převedení informací o produktu na jeho jednoznačné ID.
+Tuto funkci je třeba implementovat, aby dobře fungovaly summary.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Nastaví funkci odpovědnou za převedení informací o produktu na jeho jednoznačné ID.
+Tuto funkci je třeba implementovat, aby dobře fungovaly summary.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$idConverter</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-OndraKoupil.Heureka.ProductReviewsClient.html">OndraKoupil\Heureka\ProductReviewsClient</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSaveSummary" id="_getSaveSummary">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSaveSummary">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#121-127" title="Go to source code">getSaveSummary</a>( )</code>
+
+		<div class="description short">
+			<p>Mají se ukládat summary?</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Mají se ukládat summary?</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSaveGroupedReviews" id="_getSaveGroupedReviews">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSaveGroupedReviews">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#129-135" title="Go to source code">getSaveGroupedReviews</a>( )</code>
+
+		<div class="description short">
+			<p>Mají se ukládat do summary i všechny recenze?</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Mají se ukládat do summary i všechny recenze?</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSaveSummary" id="_setSaveSummary">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-OndraKoupil.Heureka.ProductReviewsClient.html">OndraKoupil\Heureka\ProductReviewsClient</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSaveSummary">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#137-150" title="Go to source code">setSaveSummary</a>( <span>boolean <var>$saveSummary</var></span>, <span>boolean <var>$groupedReviews</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			<p>Mají se průběžně ukládat summary? Umožní po proběhnutí importu
+pracovat s shrnujícími daty.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Mají se průběžně ukládat summary? Umožní po proběhnutí importu
+pracovat s shrnujícími daty.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$saveSummary</var></dt>
+					<dd></dd>
+					<dt><var>$groupedReviews</var></dt>
+					<dd>Mají se ukládat i všechny recenze?</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-OndraKoupil.Heureka.ProductReviewsClient.html">OndraKoupil\Heureka\ProductReviewsClient</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="resolveId" id="_resolveId">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_resolveId">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#157-181" title="Go to source code">resolveId</a>( <span><code><a href="class-OndraKoupil.Heureka.ProductReview.html">OndraKoupil\Heureka\ProductReview</a></code> <var>$review</var></span> )</code>
+
+		<div class="description short">
+			<p>Vyhodnotí ID produktu</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Vyhodnotí ID produktu</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$review</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAllProductIds" id="_getAllProductIds">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAllProductIds">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#234-241" title="Go to source code">getAllProductIds</a>( )</code>
+
+		<div class="description short">
+			<p>Vrátí pole ID všech produktů, které v datech byly.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Vrátí pole ID všech produktů, které v datech byly.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAllSummaries" id="_getAllSummaries">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAllSummaries">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#243-250" title="Go to source code">getAllSummaries</a>( )</code>
+
+		<div class="description short">
+			<p>Vrát všechny summary jako pole.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Vrát všechny summary jako pole.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>of ProductReviewSummary
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSummaryOfProduct" id="_getSummaryOfProduct">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-OndraKoupil.Heureka.ProductReviewSummary.html">OndraKoupil\Heureka\ProductReviewSummary</a></code>|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSummaryOfProduct">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#252-260" title="Go to source code">getSummaryOfProduct</a>( <span>mixed <var>$productId</var></span> )</code>
+
+		<div class="description short">
+			<p>Vrací summary pro konkrétní produkt, null když takový není nalezen.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Vrací summary pro konkrétní produkt, null když takový není nalezen.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$productId</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-OndraKoupil.Heureka.ProductReviewSummary.html">OndraKoupil\Heureka\ProductReviewSummary</a></code>|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getReviewsOfProduct" id="_getReviewsOfProduct">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getReviewsOfProduct">#</a>
+		<code><a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#262-270" title="Go to source code">getReviewsOfProduct</a>( <span>mixed <var>$productId</var></span> )</code>
+
+		<div class="description short">
+			<p>Vrátí všechny recenze daného produktu jako pole. Prázdné pole, nemá-li žádné recenze.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Vrátí všechny recenze daného produktu jako pole. Prázdné pole, nemá-li žádné recenze.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$productId</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>of ProductReviewSummary
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-OndraKoupil.Heureka.BaseClient.html#methods">OndraKoupil\Heureka\BaseClient</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_deleteTempFileIfNeeded">deleteTempFileIfNeeded()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_download">download()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_downloadFile">downloadFile()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_getCallback">getCallback()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_getDeleteTempFileAfterParsing">getDeleteTempFileAfterParsing()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_getNodeName">getNodeName()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_getSourceAddress">getSourceAddress()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_getTempFile">getTempFile()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_processElement">processElement()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_processFile">processFile()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_run">run()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_setCallback">setCallback()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_setSourceAddress">setSourceAddress()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_setTempFile">setTempFile()</a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#_useFile">useFile()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="idResolver" id="$idResolver">
+		<td class="attributes"><code>
+			protected  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#10" title="Go to source code"><var>$idResolver</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$idResolver" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="saveSummary" id="$saveSummary">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#12" title="Go to source code"><var>$saveSummary</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$saveSummary" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="saveGroupedReviews" id="$saveGroupedReviews">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#13" title="Go to source code"><var>$saveGroupedReviews</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$saveGroupedReviews" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="idResolverCache" id="$idResolverCache">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#155" title="Go to source code"><var>$idResolverCache</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$idResolverCache" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="summary" id="$summary">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OndraKoupil.Heureka.ProductReviewsClient.html#186" title="Go to source code"><var>$summary</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$summary" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-OndraKoupil.Heureka.BaseClient.html#properties">OndraKoupil\Heureka\BaseClient</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#$callback"><var>$callback</var></a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#$deleteTempFileAfterParsing"><var>$deleteTempFileAfterParsing</var></a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#$downloadFinished"><var>$downloadFinished</var></a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#$sourceAddress"><var>$sourceAddress</var></a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#$tempFile"><var>$tempFile</var></a>, 
+			<a href="class-OndraKoupil.Heureka.BaseClient.html#$xml"><var>$xml</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Heuréka importér recenzí API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

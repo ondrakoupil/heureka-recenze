@@ -2,6 +2,9 @@
 
 namespace OndraKoupil\Heureka;
 
+/**
+ * Shrnutí recenzí jednoho konkrétního produktu
+ */
 class ProductReviewSummary {
 
 	/**
@@ -27,7 +30,7 @@ class ProductReviewSummary {
 
 	/**
 	 * Celkový počet hvězdiček
-	 * 
+	 *
 	 * @var float
 	 */
 	public $totalStars = 0;
