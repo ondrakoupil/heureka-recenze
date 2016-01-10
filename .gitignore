@@ -1,0 +1,10 @@
+composer.lock
+vendor/
+/nbproject/
+/zdroje/
+/sandbox/
+/*.sh
+/tests/coverage.*
+/tests/*/output
+.DS_Store
+/apigen*

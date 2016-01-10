@@ -1,0 +1,29 @@
+{
+    "name": "ondrakoupil/heureka-recenze",
+    "description": "Knihovna pro snadný import recenzí e-shopu a produktů z Heuréka.cz",
+    "type": "library",
+    "homepage": "https://github.com/ondrakoupil/heureka-recenze",
+    "keywords": ["e-shop", "merchant", "commerce", "heureka.cz", "feedback", "reviews", "ratings"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ondrej Koupil",
+            "email": "koupil@optimato.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "OndraKoupil\\Heureka\\": "src/"
+        }
+    },
+    "require": {
+        "ondrakoupil/tools": "~0.0.6",
+		"ext-curl": "*",
+        "php": ">=5.3.1"
+    },
+    "require-dev": {
+        "nette/tester": "dev-master",
+        "ondrakoupil/testing-utils": "~0.0.7"
+    }
+}

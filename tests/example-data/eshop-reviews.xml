@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reviews>
+ <review>
+  <rating_id>141604079</rating_id>
+  <unix_timestamp>1452012918</unix_timestamp>
+  <total_rating>5</total_rating>
+  <delivery_time>5</delivery_time>
+  <transport_quality>5</transport_quality>
+  <web_usability>5</web_usability>
+  <communication>5</communication>
+  <pros><![CDATA[-velmi rychlé dodání]]></pros>
+  <summary><![CDATA[doporučuji]]></summary>
+  <order_id>14343</order_id>
+ </review>
+ <review>
+  <rating_id>140332011</rating_id>
+  <name><![CDATA[Věra - J.]]></name>
+  <unix_timestamp>1451990785</unix_timestamp>
+  <total_rating>5</total_rating>
+  <delivery_time>5</delivery_time>
+  <transport_quality>5</transport_quality>
+  <web_usability>5</web_usability>
+  <communication>5</communication>
+  <pros><![CDATA[rychlé dodání
+dobré ceny]]></pros>
+  <cons><![CDATA[nevím o žádných]]></cons>
+  <summary><![CDATA[spokojena]]></summary>
+  <order_id>14088</order_id>
+ </review>
+ <review>
+  <rating_id>138008506</rating_id>
+  <unix_timestamp>1451932959</unix_timestamp>
+  <total_rating>4</total_rating>
+  <delivery_time>5</delivery_time>
+  <transport_quality>5</transport_quality>
+  <web_usability>3.5</web_usability>
+  <communication>5</communication>
+  <cons><![CDATA[u výrobků chyběl návod v češtině (způsob použití byl pouze v německém jazyce nebo vůbec)]]></cons>
+  <summary><![CDATA[dobrý obchod s rychlým vyřízením a doručením objednávky]]></summary>
+  <order_id>13594</order_id>
+  <reaction><![CDATA[byl to německý výrobek]]></reaction>
+ </review>
+ <review>
+  <rating_id>61843903</rating_id>
+  <name><![CDATA[bročka]]></name>
+  <unix_timestamp>1389727969</unix_timestamp>
+  <total_rating>5</total_rating>
+  <delivery_time>5</delivery_time>
+  <transport_quality>5</transport_quality>
+  <web_usability>5</web_usability>
+  <communication>5</communication>
+  <pros><![CDATA[výběr zboží v klidu z domova]]></pros>
+  <summary><![CDATA[velká spokojenost]]></summary>
+  <order_id>3049</order_id>
+ </review>
+ <review>
+  <rating_id>59065101</rating_id>
+  <name><![CDATA[BreHa]]></name>
+  <unix_timestamp>1387961408</unix_timestamp>
+  <total_rating>5</total_rating>
+  <delivery_time>5</delivery_time>
+  <transport_quality>5</transport_quality>
+  <web_usability>5</web_usability>
+  <communication>5</communication>
+  <pros><![CDATA[super ceny za kvalitní zboží]]></pros>
+  <cons><![CDATA[žlutý kůň Úpěl Ďábelské ódy]]></cons>
+  <order_id>2382</order_id>
+ </review>
+</reviews>
