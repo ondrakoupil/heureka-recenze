@@ -5,7 +5,7 @@
 Nainstalujte knihovnu přes Composer:
 
 ```
-composer install ondrakoupil\heureka
+composer install ondrakoupil\heureka-recenze
 ```
 
 Nepoužíváte-li Composer, includujte soubor `dist/heureka.php`, který obsahuje celou knihovnu pohromadě, 
