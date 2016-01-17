@@ -309,21 +309,21 @@ class EshopReview {
 	/**
 	 * Hodnocení celkové - na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingTotal;
 
 	/**
 	 * Hodnocení délky dodací lhůty - na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingDelivery;
 
 	/**
 	 * Hodnocení kvality dopravy zboží - na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingTransportQuality;
 
@@ -331,7 +331,7 @@ class EshopReview {
 	 * Hodnocení použitelnosti a přehlednosti e-shopu
 	 * na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingWebUsability;
 
@@ -339,7 +339,7 @@ class EshopReview {
 	 * Hodnocení komunikace ze strany e-shopu
 	 * na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingCommunication;
 
@@ -426,12 +426,38 @@ class EshopReviewsClient extends BaseClient {
 		$review->date->setTimestamp((int)$element->unix_timestamp);
 		$review->orderId = (string)$element->order_id;
 		$review->pros = (string)$element->pros;
-		$review->ratingCommunication = (float)$element->communication;
-		$review->ratingDelivery = (float)$element->delivery_time;
+
+		if (count($element->communication)) {
+			$review->ratingCommunication = (float)$element->communication;
+		} else {
+			$review->ratingCommunication = null;
+		}
+
+		if (count($element->delivery_time)) {
+			$review->ratingDelivery = (float)$element->delivery_time;
+		} else {
+			$review->ratingDelivery = null;
+		}
+
+		if (count($element->total_rating)) {
+			$review->ratingTotal = (float)$element->total_rating;
+		} else {
+			$review->ratingTotal = null;
+		}
+
+		if (count($element->transport_quality)) {
+			$review->ratingTransportQuality = (float)$element->transport_quality;
+		} else {
+			$review->ratingTransportQuality = null;
+		}
+
+		if (count($element->web_usability)) {
+			$review->ratingWebUsability = (float)$element->web_usability;
+		} else {
+			$review->ratingWebUsability = null;
+		}
+
 		$review->ratingId = (int)$element->rating_id;
-		$review->ratingTotal = (float)$element->total_rating;
-		$review->ratingTransportQuality = (float)$element->transport_quality;
-		$review->ratingWebUsability = (float)$element->web_usability;
 		$review->reaction = (string)$element->reaction;
 		$review->summary = (string)$element->summary;
 
@@ -487,7 +513,7 @@ class ProductReview {
 	/**
 	 * Hodnocení produktu na stupnici od 0.5 do 5.
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $rating;
 
@@ -594,6 +620,14 @@ class ProductReviewSummary {
 	 * @var int
 	 */
 	public $reviewCount = 0;
+
+	/**
+	 * Počet hodnocení na tento produkt.
+	 * Počet hodnocení a počet recenzí nemusí nutně být totéž.
+	 *
+	 * @var int
+	 */
+	public $ratingCount = 0;
 
 	/**
 	 * Průměrné hodnocení na stupnici 0.5 až 5 hvězdiček
@@ -730,9 +764,14 @@ class ProductReviewsClient extends BaseClient {
 		$review->productEan = (string)$element->ean;
 		$review->productNumber = (string)$element->productno;
 		$review->pros = (string)$reviewElement->pros;
-		$review->rating = (float)$reviewElement->rating;
 		$review->ratingId = (int)$reviewElement->rating_id;
 		$review->summary = (string)$reviewElement->summary;
+
+		if (count($reviewElement->rating) > 0) {
+			$review->rating = (float)$reviewElement->rating;
+		} else {
+			$review->rating = null;
+		}
 
 		$prodId = $this->resolveId($review);
 		$review->productId = $prodId;
@@ -859,14 +898,18 @@ class ProductReviewsClient extends BaseClient {
 		$summary = $this->summary[$productId];
 
 		$summary->reviewCount++;
-		$summary->totalStars += $review->rating;
-		$summary->averageRating = round($summary->totalStars / $summary->reviewCount, 1);
 
-		if (!$summary->bestRating or $summary->bestRating < $review->rating) {
-			$summary->bestRating = $review->rating;
-		}
-		if (!$summary->worstRating or $summary->worstRating > $review->rating) {
-			$summary->worstRating = $review->rating;
+		if ($review->rating !== null) {
+			$summary->ratingCount++;
+			$summary->totalStars += $review->rating;
+			$summary->averageRating = round($summary->totalStars / $summary->ratingCount, 1);
+
+			if (!$summary->bestRating or $summary->bestRating < $review->rating) {
+				$summary->bestRating = $review->rating;
+			}
+			if (!$summary->worstRating or $summary->worstRating > $review->rating) {
+				$summary->worstRating = $review->rating;
+			}
 		}
 
 		if (!$summary->newestReviewDate or $summary->newestReviewDate < $review->date) {
