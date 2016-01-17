@@ -381,6 +381,9 @@ class EshopReview {
 	 */
 	public $orderId;
 
+	/**
+	 * @return array
+	 */
 	function getAsArray() {
 		return get_object_vars($this);
 	}
@@ -592,6 +595,14 @@ class ProductReview {
 	 * @var string
 	 */
 	public $orderId;
+
+	/**
+	 * @return array
+	 */
+	function getAsArray() {
+		return get_object_vars($this);
+	}
+
 
 }
 
