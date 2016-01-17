@@ -112,6 +112,11 @@ class ProductReviewsClientTest extends \Tester\TestCase {
 
 		Assert::null($client->getSummaryOfProduct(12345));
 
+		$arr = $reviews[0]->getAsArray();
+		foreach($arr as $index=>$val) {
+			Assert::same($reviews[0]->$index, $val);
+		}
+
 
 	}
 

@@ -105,6 +105,7 @@ class EshopReviewsClientTest extends \Tester\TestCase {
 		Assert::same("", $reviews[3]->cons);
 		Assert::same("byl to německý výrobek", $reviews[2]->reaction);
 		Assert::same("žlutý kůň Úpěl Ďábelské ódy", $reviews[4]->cons);
+		
 
 	}
 
