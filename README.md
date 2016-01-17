@@ -1,5 +1,7 @@
 # PHP knihovna pro zpracování recenzí z Heuréky
 
+[![Build Status](https://travis-ci.org/ondrakoupil/heureka-recenze.svg?branch=master)](https://travis-ci.org/ondrakoupil/heureka-recenze.svg?branch=master)
+
 ## Instalace
 
 Nainstalujte knihovnu přes Composer:
