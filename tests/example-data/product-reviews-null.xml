@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<product_name><![CDATA[Stojan notový Pecka MSP-008 RD]]></product_name>
+		<url><![CDATA[http://www.someeshop.cz/stojan-notovy-pecka.html]]></url>
+		<cena>290.00</cena>
+		<price>290.00</price>
+		<order_id>13960</order_id>
+		<reviews>
+			<review>
+				<rating_id>5957872</rating_id>
+				<unix_timestamp>1452316372</unix_timestamp>
+				<name><![CDATA[kalamajka]]></name>
+				<rating>3</rating>
+				<pros><![CDATA[celkem dobrý]]></pros>
+				<cons><![CDATA[zatím nic]]></cons>
+				<summary><![CDATA[vše ok]]></summary>
+			</review>
+		</reviews>
+	</product>
+	<product>
+		<product_name><![CDATA[Stojan notový Pecka MSP-008 RD]]></product_name>
+		<url><![CDATA[http://www.someeshop.cz/stojan-notovy-pecka.html]]></url>
+		<cena>290.00</cena>
+		<price>290.00</price>
+		<order_id>13960</order_id>
+		<reviews>
+			<review>
+				<rating_id>5957872</rating_id>
+				<unix_timestamp>1452356372</unix_timestamp>
+				<name><![CDATA[kalamajka]]></name>
+				<rating>5</rating>
+				<pros><![CDATA[zatím to vypadá dobře
+za ty peníze je to dobrý kšeft
+snad se nerozpadne]]></pros>
+				<cons><![CDATA[zatím nic]]></cons>
+				<summary><![CDATA[vše ok]]></summary>
+			</review>
+		</reviews>
+	</product>
+
+	<product>
+		<product_name><![CDATA[Stojan notový Pecka MSP-008 RD]]></product_name>
+		<url><![CDATA[http://www.someeshop.cz/stojan-notovy-pecka.html]]></url>
+		<cena>290.00</cena>
+		<price>290.00</price>
+		<order_id>13960</order_id>
+		<reviews>
+			<review>
+				<rating_id>5957872</rating_id>
+				<unix_timestamp>1452356372</unix_timestamp>
+				<name><![CDATA[kalamajka]]></name>
+				<pros><![CDATA[zatím nechci hodnotit, moc jsem s tím nepracoval.]]></pros>
+				<cons><![CDATA[zatím nic]]></cons>
+				<summary><![CDATA[vše ok]]></summary>
+			</review>
+		</reviews>
+	</product>
+
+</products>

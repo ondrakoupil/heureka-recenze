@@ -177,6 +177,25 @@ class ProductReviewsClientTest extends \Tester\TestCase {
 		Assert::same($lastReview, $client->getSummaryOfProduct('http://www.someeshop.cz/klasicka-kytara-44-pecka-nat.html')->reviews[0]);
 	}
 
+	function testWithNullRatings() {
+		$client = new ProductReviewsClient();
+		$client->useFile(__DIR__ . "/../example-data/product-reviews-null.xml");
+		$client->setSaveSummary(true, true);
+		$client->setIdResolver(function(ProductReview $r) {
+			return "aaa";
+		});
+		$client->run();
+
+		$reviews = $client->getSummaryOfProduct("aaa");
+
+		Assert::equal(3, $reviews->reviewCount);
+		Assert::equal(2, $reviews->ratingCount);
+		Assert::equal(4.0, $reviews->averageRating);
+		Assert::equal(3.0, $reviews->reviews[0]->rating);
+		Assert::equal(5.0, $reviews->reviews[1]->rating);
+		Assert::null($reviews->reviews[2]->rating);
+	}
+
 
 }
 

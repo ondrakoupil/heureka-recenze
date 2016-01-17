@@ -45,7 +45,6 @@ dobré ceny]]></pros>
   <name><![CDATA[bročka]]></name>
   <unix_timestamp>1389727969</unix_timestamp>
   <total_rating>5</total_rating>
-  <delivery_time>5</delivery_time>
   <transport_quality>5</transport_quality>
   <web_usability>5</web_usability>
   <communication>5</communication>
@@ -57,11 +56,6 @@ dobré ceny]]></pros>
   <rating_id>59065101</rating_id>
   <name><![CDATA[BreHa]]></name>
   <unix_timestamp>1387961408</unix_timestamp>
-  <total_rating>5</total_rating>
-  <delivery_time>5</delivery_time>
-  <transport_quality>5</transport_quality>
-  <web_usability>5</web_usability>
-  <communication>5</communication>
   <pros><![CDATA[super ceny za kvalitní zboží]]></pros>
   <cons><![CDATA[žlutý kůň Úpěl Ďábelské ódy]]></cons>
   <order_id>2382</order_id>

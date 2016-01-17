@@ -108,6 +108,31 @@ class EshopReviewsClientTest extends \Tester\TestCase {
 
 	}
 
+	function testNullValues() {
+		$client = new EshopReviewsClient();
+
+		$client->useFile(__DIR__ . "/../example-data/eshop-reviews.xml");
+
+		$reviews = array();
+
+		$client->setCallback(function(EshopReview $review) use (&$reviews) {
+			$reviews[] = $review;
+		});
+
+		$client->run();
+
+		Assert::equal(3.5, $reviews[2]->ratingWebUsability);
+		Assert::equal(5.0, $reviews[3]->ratingWebUsability);
+		Assert::null($reviews[3]->ratingDelivery);
+
+		Assert::null($reviews[4]->ratingWebUsability);
+		Assert::null($reviews[4]->ratingTotal);
+		Assert::null($reviews[4]->ratingDelivery);
+		Assert::null($reviews[4]->ratingCommunication);
+		Assert::null($reviews[4]->ratingTransportQuality);
+
+	}
+
 
 }
 

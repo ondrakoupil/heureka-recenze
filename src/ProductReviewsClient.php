@@ -79,9 +79,14 @@ class ProductReviewsClient extends BaseClient {
 		$review->productEan = (string)$element->ean;
 		$review->productNumber = (string)$element->productno;
 		$review->pros = (string)$reviewElement->pros;
-		$review->rating = (float)$reviewElement->rating;
 		$review->ratingId = (int)$reviewElement->rating_id;
 		$review->summary = (string)$reviewElement->summary;
+
+		if (count($reviewElement->rating) > 0) {
+			$review->rating = (float)$reviewElement->rating;
+		} else {
+			$review->rating = null;
+		}
 
 		$prodId = $this->resolveId($review);
 		$review->productId = $prodId;
@@ -208,14 +213,18 @@ class ProductReviewsClient extends BaseClient {
 		$summary = $this->summary[$productId];
 
 		$summary->reviewCount++;
-		$summary->totalStars += $review->rating;
-		$summary->averageRating = round($summary->totalStars / $summary->reviewCount, 1);
 
-		if (!$summary->bestRating or $summary->bestRating < $review->rating) {
-			$summary->bestRating = $review->rating;
-		}
-		if (!$summary->worstRating or $summary->worstRating > $review->rating) {
-			$summary->worstRating = $review->rating;
+		if ($review->rating !== null) {
+			$summary->ratingCount++;
+			$summary->totalStars += $review->rating;
+			$summary->averageRating = round($summary->totalStars / $summary->ratingCount, 1);
+
+			if (!$summary->bestRating or $summary->bestRating < $review->rating) {
+				$summary->bestRating = $review->rating;
+			}
+			if (!$summary->worstRating or $summary->worstRating > $review->rating) {
+				$summary->worstRating = $review->rating;
+			}
 		}
 
 		if (!$summary->newestReviewDate or $summary->newestReviewDate < $review->date) {

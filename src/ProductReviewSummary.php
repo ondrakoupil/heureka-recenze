@@ -22,6 +22,14 @@ class ProductReviewSummary {
 	public $reviewCount = 0;
 
 	/**
+	 * Počet hodnocení na tento produkt.
+	 * Počet hodnocení a počet recenzí nemusí nutně být totéž.
+	 *
+	 * @var int
+	 */
+	public $ratingCount = 0;
+
+	/**
 	 * Průměrné hodnocení na stupnici 0.5 až 5 hvězdiček
 	 *
 	 * @var float

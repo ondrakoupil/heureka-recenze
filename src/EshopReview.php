@@ -38,21 +38,21 @@ class EshopReview {
 	/**
 	 * Hodnocení celkové - na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingTotal;
 
 	/**
 	 * Hodnocení délky dodací lhůty - na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingDelivery;
 
 	/**
 	 * Hodnocení kvality dopravy zboží - na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingTransportQuality;
 
@@ -60,7 +60,7 @@ class EshopReview {
 	 * Hodnocení použitelnosti a přehlednosti e-shopu
 	 * na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingWebUsability;
 
@@ -68,7 +68,7 @@ class EshopReview {
 	 * Hodnocení komunikace ze strany e-shopu
 	 * na stupnici 0.5 až 5 hvězdiček
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $ratingCommunication;
 

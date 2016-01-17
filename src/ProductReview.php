@@ -38,7 +38,7 @@ class ProductReview {
 	/**
 	 * Hodnocení produktu na stupnici od 0.5 do 5.
 	 *
-	 * @var number
+	 * @var number|null
 	 */
 	public $rating;
 

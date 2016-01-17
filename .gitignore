@@ -8,3 +8,4 @@ vendor/
 /tests/*/output
 .DS_Store
 /apigen*
+.idea
