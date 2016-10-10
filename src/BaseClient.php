@@ -117,6 +117,10 @@ abstract class BaseClient {
 
 	abstract function processElement(\SimpleXMLElement $element, $index);
 
+	protected function isSpecialEmptyResponse($fileContent) {
+		return false;
+	}
+
 	protected function downloadFile() {
 
 		if (!$this->sourceAddress) {
@@ -172,8 +176,16 @@ abstract class BaseClient {
 		$mainNodeName = $this->getNodeName();
 
 		if ($this->tempFile) {
+			if ($this->isSpecialEmptyResponse(file_get_contents($this->tempFile))) {
+				return;
+			}
+
 			$xmlReader->open($this->tempFile);
 		} else {
+			if ($this->isSpecialEmptyResponse($this->xml)) {
+				return;
+			}
+
 			$xmlReader->XML($this->xml);
 		}
 

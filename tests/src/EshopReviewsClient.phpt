@@ -109,6 +109,22 @@ class EshopReviewsClientTest extends \Tester\TestCase {
 
 	}
 
+	function testParseNoReviews() {
+		$client = new EshopReviewsClient();
+
+		$client->useFile(__DIR__ . "/../example-data/eshop-reviews-empty.txt");
+
+		$reviews = array();
+
+		$client->setCallback(function(EshopReview $review) use (&$reviews) {
+			$reviews[] = $review;
+		});
+
+		$client->run();
+
+		Assert::same(0, count($reviews));
+	}
+
 	function testNullValues() {
 		$client = new EshopReviewsClient();
 

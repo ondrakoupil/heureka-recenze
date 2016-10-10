@@ -99,6 +99,10 @@ class ProductReviewsClient extends BaseClient {
 
 	}
 
+	protected function isSpecialEmptyResponse($fileContent) {
+		return preg_match('/^INFO: No product reviews/u', $fileContent);
+	}
+
 	/**
 	 * @return callable|null
 	 */
