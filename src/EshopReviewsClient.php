@@ -14,7 +14,7 @@ class EshopReviewsClient extends BaseClient {
 	public function setKey($key) {
 
 		if (preg_match('~^\w{32}$~', $key)) {
-			$this->setSourceAddress("http://www.heureka.cz/direct/dotaznik/export-review.php?key=" . $key);
+			$this->setSourceAddress("https://www.heureka.cz/direct/dotaznik/export-review.php?key=" . $key);
 		} else {
 			$this->setSourceAddress($key);
 		}

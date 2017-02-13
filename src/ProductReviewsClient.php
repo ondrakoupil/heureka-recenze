@@ -41,7 +41,7 @@ class ProductReviewsClient extends BaseClient {
 		}
 
 		if (preg_match('~^\w{32}$~', $key)) {
-			$this->setSourceAddress("http://www.heureka.cz/direct/dotaznik/export-product-review.php?key=" . $key . $fromPart);
+			$this->setSourceAddress("https://www.heureka.cz/direct/dotaznik/export-product-review.php?key=" . $key . $fromPart);
 		} else {
 			$this->setSourceAddress($key);
 		}
