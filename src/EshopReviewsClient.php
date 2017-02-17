@@ -74,6 +74,9 @@ class EshopReviewsClient extends BaseClient {
 
 	}
 
+	protected function isSpecialEmptyResponse($fileContent) {
+		return preg_match('/^INFO: No reviews/u', $fileContent);
+	}
 
 
 

@@ -120,6 +120,21 @@ class ProductReviewsClientTest extends \Tester\TestCase {
 
 	}
 
+	function testParseNoReviews() {
+		$client = new ProductReviewsClient();
+
+		$client->useFile(__DIR__ . "/../example-data/product-reviews-empty.txt");
+
+		$reviews = array();
+
+		$client->setCallback(function(ProductReview $review) use (&$reviews) {
+			$reviews[] = $review;
+		});
+
+		$client->run();
+
+		Assert::same(0, count($reviews));
+	}
 
 	function testSummaries() {
 
